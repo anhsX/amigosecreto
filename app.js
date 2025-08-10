@@ -14,25 +14,25 @@ function agregarAmigo(){
     }
     else{
         Amigos.push(nombre);
-    
-        let elementoHTML = document.getElementById('listaAmigos');
-        elementoHTML.innerHTML += `${nombre}<li>`;}
-
-
-    borrarInfo('amigo');
-
-    console.log(Amigos);
+        actualizarLista(nombre);
+        }
+    borrarCaja('amigo');
     return;
 }
 
-function borrarInfo(elemento){
+function actualizarLista(nombre){
+        (document.querySelector('#listaAmigos')).innerHTML+=`${nombre}<li>`;
+        return;
+}
+
+function borrarCaja(elemento){
     document.getElementById(elemento).value="";
     return;
 }
 
 
 function sortearAmigo(){
-    asignarTextoElemento("ul","");
+    asignarTextoElemento("#listaAmigos","");
     tope= Amigos.length;
     if (tope==0){
         alert("No se ha ingresado ninguna persona");
@@ -42,3 +42,5 @@ function sortearAmigo(){
         asignarTextoElemento("#resultado", `Su amigo secreto es ${Amigos[numAleatorio]}`);}
     return;
 }
+
+
