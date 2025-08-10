@@ -33,9 +33,12 @@ function borrarInfo(elemento){
 
 function sortearAmigo(){
     asignarTextoElemento("ul","");
-
     tope= Amigos.length;
-    let numAleatorio= Math.floor(Math.random()*tope);
-    asignarTextoElemento("#resultado", `Su amigo secreto es ${Amigos[numAleatorio]}`);
+    if (tope==0){
+        alert("No se ha ingresado ninguna persona");
+    }
+    else{
+        let numAleatorio= Math.floor(Math.random()*tope);
+        asignarTextoElemento("#resultado", `Su amigo secreto es ${Amigos[numAleatorio]}`);}
     return;
 }
