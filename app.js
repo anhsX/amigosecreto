@@ -1,1 +1,41 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+let Amigos=[];
+let tope;
+
+function asignarTextoElemento(elemento, texto){
+    let elementoHTML = document.querySelector(elemento);
+    elementoHTML.innerHTML = texto;
+    return;
+}
+
+function agregarAmigo(){
+    let nombre = document.getElementById('amigo').value;
+    if (nombre=="" || Amigos.includes(nombre)){
+        alert("Ingrese un nombre valido que no haya sido usado");
+    }
+    else{
+        Amigos.push(nombre);
+    
+        let elementoHTML = document.getElementById('listaAmigos');
+        elementoHTML.innerHTML += `${nombre}<li>`;}
+
+
+    borrarInfo('amigo');
+
+    console.log(Amigos);
+    return;
+}
+
+function borrarInfo(elemento){
+    document.getElementById(elemento).value="";
+    return;
+}
+
+
+function sortearAmigo(){
+    asignarTextoElemento("ul","");
+
+    tope= Amigos.length;
+    let numAleatorio= Math.floor(Math.random()*tope);
+    asignarTextoElemento("#resultado", `Su amigo secreto es ${Amigos[numAleatorio]}`);
+    return;
+}
